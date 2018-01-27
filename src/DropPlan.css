@@ -4,19 +4,7 @@
   grid-template-columns: repeat(14, 175px);
   grid-gap: 5px;
 }
-.person {
-  display: grid;
-  display: -ms-grid;
-  grid-template-columns: 100%;
-  grid-gap: 5px;
-}
 
-.tasks {
-  display: grid;
-  display: -ms-grid;
-  grid-template-columns: repeat(14, 175px);
-  grid-gap: 5px;
-}
 #header-top {
   width: 100%;
   background-color: white; 
@@ -26,9 +14,7 @@
   z-index: 2;
   height: 30px;
 }
-.drop-plan.content {
-  
-}
+
 .main-content {
   top: 30px;
   position: absolute;

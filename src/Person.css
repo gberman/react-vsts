@@ -1,0 +1,31 @@
+.person {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 100%;
+  grid-gap: 5px;
+}
+.person .title{
+  height: 1rem;
+}
+.work-items .work-item {
+  margin: 2px;
+  border: 1px solid black;
+  border-left: 3px solid yellow;
+}
+.work-items {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: repeat(5, 175px);
+  grid-gap: 5px;
+}
+
+.left{
+  margin-left: 10px;
+  position: fixed;
+  left: 0;
+}
+.right{
+  position:fixed;
+  right: 0;
+  margin-right: 10px;
+}
