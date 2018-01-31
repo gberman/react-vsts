@@ -12,7 +12,7 @@
   height: 2rem;
   vertical-align: middle;
   font-weight: 600;
-  grid-column-start: 0;
+  grid-column-start: 1;
   grid-column-end: 8;
 }
 .person .title > div{
@@ -48,11 +48,9 @@
 
 .left{
   margin-left: 10px;
-  position: fixed;
-  left: 0;
+  float: left;
 }
 .right{
-  position:fixed;
-  right: 0;
   margin-right: 10px;
+  float: right;
 }
