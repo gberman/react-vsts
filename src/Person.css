@@ -1,22 +1,49 @@
 .person {
   display: grid;
   display: -ms-grid;
-  grid-template-columns: 100%;
+  grid-template-columns: repeat(7, 175px);
   grid-gap: 5px;
+  grid-row-gap: 0;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color:lightslategray;
 }
 .person .title{
-  height: 1rem;
+  height: 2rem;
+  vertical-align: middle;
+  font-weight: 600;
+  grid-column-start: 0;
+  grid-column-end: 8;
+}
+.person .title > div{
+  height: 100%;
+  vertical-align: middle;
+  margin: .5rem;
 }
 .work-items .work-item {
-  margin: 2px;
+  margin: 4px 2px;
   border: 1px solid black;
   border-left: 3px solid yellow;
+  background-color: antiquewhite;
+}
+.work-items .work-item .primary {
+  text-align: left;
+  font-weight: 600;
+  padding: 1px 3px;
+}
+.work-items .work-item .secondary {
+  padding: 2px;
+}
+.work-items .work-item .secondary .remaining-hrs {
+  width: 100%;
+  text-align: right;
 }
 .work-items {
   display: grid;
   display: -ms-grid;
-  grid-template-columns: repeat(5, 175px);
+  grid-template-columns: repeat(7, 175px);
   grid-gap: 5px;
+  
 }
 
 .left{
