@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import PersonHeader from './PersonHeader'
 import WorkItem from './WorkItem'
 import './Person.css'
+import PropTypes from 'prop-types';
+import { ItemTypes } from './Constants';
+import { DropTarget } from 'react-dnd';
+
+const workItemTarget = {
+  drop(props) {
+    debugger;
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
 
 class Person extends Component {
   constructor(props) {
@@ -26,6 +42,7 @@ class Person extends Component {
     return (<div key={tC.date} className="grid-column">{this.GetNumberOfTasksInADay(tC.date)}</div>);
   }
   OneDaysTasks(date){
+    console.log(this.props.connectDropTarget);
     let tasks = this.props.tasks.filter(wi => Math.abs(wi.start - date) < 64800000); // within one hour
     return (<div key={date} className="grid-column">{tasks.map(this.OneWorkItemRender)}</div>);
   }
@@ -45,7 +62,8 @@ class Person extends Component {
       </div>);
   }
   render() {
-    return (
+    
+    return this.props.connectDropTarget(
       <div className="person">
         <PersonHeader person={this.props.person} toggle={this.ToggleDisplay} />
         {this.state.onlyShowSummary ? this.Summary() : this.Details()}
@@ -53,4 +71,12 @@ class Person extends Component {
   }
 }
 
-export default Person
+Person.propTypes = {
+  person:PropTypes.object.isRequired,
+  daysOff:PropTypes.object.isRequired,
+  tasks:PropTypes.array.isRequired,
+  taskCount:PropTypes.array.isRequired,
+  connectDropTarget: PropTypes.func.isRequired
+};
+
+export default DropTarget(ItemTypes.WORK_ITEM, workItemTarget, collect)(Person);
